@@ -186,16 +186,17 @@ check_filePath <- function(filePath){
     message("filePath points to work memory")
     return()
   }
-  lastSL <- rev(unlist(gregexpr("/", filePath)))[[1]]
-  lastDot <- rev(unlist(gregexpr("\\.", filePath)))[[1]]
+
   # divide string
-  directory <- substr(filePath, 1, lastSL)
-  fileFormat <- substr(filePath, lastDot, nchar(filePath))
+  directory <- dirname(filePath)
+  filename <- basename(filePath)
+  fileFormat <- strsplit(filename, "\\.")[[1]][2]
+
   # check directory
   if(!dir.exists(directory)) stop(paste(directory, "is not an existing directory"))
   # check file name
   if(file.exists(filePath)) stop(paste(filePath, "is an existing data base"))
-  if(!identical(fileFormat, ".db")) stop("Filename does not end on .db")
+  if(!identical(fileFormat, "db")) stop("Filename does not end on .db")
 
   return()
 }

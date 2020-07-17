@@ -14,6 +14,15 @@ createDB(dfList = dfList, pkList = pkList, fkList = fkList, metaData = metaData,
 #  expect_silent(init_DB_shell(filePath = ":memory:"))
 #})
 
+test_that("check_filePath", {
+  tempf <- paste0(tempfile(), ".db")
+  expect_silent(check_filePath(tempf))
+  tempf2 <- paste0(tempfile(), ".dc")
+  expect_error(check_filePath(tempf2), "Filename does not end on .db")
+  tempf3 <- paste0(tempfile(), "//arbitrary_director//file.db")
+  expect_error(check_filePath(tempf3))
+})
+
 ### data table query creation
 test_that("Create partial Query for variable definitions", {
   createdQuery <- write_varDef(dfList$df1)

@@ -1,11 +1,12 @@
-9fb334c4c63519fba09f3a12b8d10c75 *DESCRIPTION
+05e578b174e0a3da2722b4ca9d24eb65 *DESCRIPTION
 7085de3c71c20ba35f2a8516a3a1fba0 *NAMESPACE
+ed2f8d9c144800cd2b8c136cf490710f *NEWS.md
 57f454b35b18b8c9b47f1bdc1b7b1934 *R/01_input_checks.R
-c26d5db1ca9a7faf8e003cff24238560 *R/02_DB_creation.R
+151cff864e09827de4b663ac0dbbdd7a *R/02_DB_creation.R
 1e3feefa4d8cdbd9724f34a865e2363f *R/03_DB_infos.R
 2469affde4f620a1c925940c8d93726a *R/04_DB_pulls.R
 b66cc084bbbe5c28595f9ccde1da8a52 *R/sqlite_keywords.R
-cd008ffb53fd26def82c41dad6d329a2 *README.md
+3d0ba499a91dede39652392560a65e10 *README.md
 72da7a589713a329acbe47598471eab6 *data/sqlite_keywords.rda
 9c5f22eded53bd48e465b27e732ddd4c *inst/extdata/example_dataBase.db
 9bf3a356296b5a8be156e347c72be636 *man/createDB.Rd
@@ -23,6 +24,6 @@ e274b27499fb351fea727f0828dcc77c *tests/testthat/helper_dataBase4.db
 1b96045a308136bca6d1d3cd7b32899b *tests/testthat/helper_dbdata.rda
 39bbbd4368a335276a47d7e92534802d *tests/testthat/test.csv
 87140cf307e5ef1ea82eacba6d88eac1 *tests/testthat/test_01_inputChecks.R
-ec9c06aa65fb714dd42c2c670e88f50b *tests/testthat/test_02_createDB.R
+9592d3ece6e679d360de9d0a7f2bfdff *tests/testthat/test_02_createDB.R
 d77c9253d206068da061800f6b9dd0c1 *tests/testthat/test_03_interactDB.R
 f99fbed568b16eff591d5cc6af7f97f6 *tests/testthat/test_04_pullDB.R
