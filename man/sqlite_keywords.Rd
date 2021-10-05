@@ -16,7 +16,4 @@ sqlite_keywords
 \description{
 A character vector containing the current SQLite Keywords. These strings can not be used as variable names in \code{eatDB}.
 }
-\details{
-Extracts names of all variables included in the relational data base, structured as a list with the individual data tables as elements.
-}
 \keyword{datasets}

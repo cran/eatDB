@@ -3,7 +3,7 @@
 #############################################################################
 #' Pull data from a relational data base.
 #'
-#' Function to extract specific variables from various data tables. Variables are merged in the specified merge order via left joins and using the foreign keys. If variables are selected from a specific data table, the corresponding primary keys are also always extracted. If no variables from the first data tables in the \code{mergeOrder} are selected, these data tables are skipped (up till the first variable - data table match).
+#' Function to extract specific variables from various data tables. Variables are merged in the specified merge order via left joins and using the foreign keys. If variables are selected from a specific data table, the corresponding primary keys are also always extracted. If no variables from the first data tables in the \code{mergeOrder} are selected, these data tables are skipped (up till the first variable - data table match). If only variables of a single data table are selected, this data table is extracted with all variables and sub setting is performed in \code{R}.
 #'
 #' Note that the exact merging process is determined when the data base is created via \code{\link{createDB}} and can not be altered post hoc. Further options (e.g. filtering cases, full joins) are still under development. If you want to use the package and have specific requests, please contact the package author.
 #'
@@ -40,6 +40,15 @@ dbPull <- function(vSelect = NULL, filePath) {
 
   # check names and sort to data tables
   varList <- prep_vSelect(vSelect = vSelect, allNames = allNames, pkList = keyList$pkList)
+
+  # shortcut if all variables from single table (might be more memory intensive but faster for larger data sets)
+  # also guarantees correct structure for pulls from one data table! (important feature)
+  table_with_vars <- sapply(varList, length) > 0
+  if(sum(table_with_vars) == 1) {
+    #browser()
+    out <- dbSingleDF(dfName = names(varList)[table_with_vars], filePath = filePath)
+    return(out[, varList[[which(table_with_vars)]], drop = FALSE])
+  }
 
   # Establish Connection, disconnect when function exits
   con <- dbConnect_default(dbName = filePath)

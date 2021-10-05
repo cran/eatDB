@@ -2,9 +2,9 @@
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/eatDB)](https://CRAN.R-project.org/package=eatDB)
-[![Travis build status](https://travis-ci.org/beckerbenj/eatDB.svg?branch=master)](https://travis-ci.org/beckerbenj/eatDB) 
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/beckerbenj/eatDB?branch=master&svg=true)](https://ci.appveyor.com/project/beckerbenj/eatDB)
+[![R-CMD-check](https://github.com/beckerbenj/eatDB/workflows/R-CMD-check/badge.svg)](https://github.com/beckerbenj/eatDB/actions)
 [![codecov](https://codecov.io/github/beckerbenj/eatDB/branch/master/graphs/badge.svg)](https://codecov.io/github/beckerbenj/eatDB)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/eatDB?color=blue)](https://cran.r-project.org/package=eatDB)
 <!-- badges: end -->
 
 

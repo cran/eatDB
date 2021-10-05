@@ -4,15 +4,15 @@ context("Pull and merge data from DB")
 library(eatDB)
 
 # load test data (df1, df2, pkList, fkList)
-# load(file = "c:/Benjamin_Becker/02_Repositories/packages/eatDB/tests/testthat/helper_dbdata.rda")
+# load(file = "tests/testthat/helper_dbdata.rda")
 load(file = "helper_dbdata.rda")
 
 
 ### variable input check
 allNames <- dbNames("helper_dataBase.db")
 pkList <- dbKeys("helper_dataBase.db")$pkList
-# allNames <- dbNames("c:/Benjamin_Becker/02_Repositories/packages/eatDB/tests/testthat/helper_database.db")
-# pkList <- dbKeys("c:/Benjamin_Becker/02_Repositories/packages/eatDB/tests/testthat/helper_database.db")$pkList
+# allNames <- dbNames("tests/testthat/helper_database.db")
+# pkList <- dbKeys("tests/testthat/helper_database.db")$pkList
 
 
 
@@ -78,6 +78,7 @@ expected <- m1[, c(2, 1, 3)]
 
 
 test_that("Merged results are correct for complete pulls", {
+  #expect_equal(dbPull(filePath = "tests/testthat/helper_dataBase.db"), expected)
   expect_equal(dbPull(filePath = "helper_dataBase.db"), expected)
 })
 
@@ -89,7 +90,8 @@ test_that("Merged results are correct if one data table has no variables in outp
 })
 
 test_that("dbPull for single table data base",{
-  # out <- dbPull(filePath = "c:/Benjamin_Becker/02_Repositories/packages/eatDB/tests/testthat/helper_dataBase_singleTable.db")
+  # out <- dbPull(filePath = "tests/testthat/helper_dataBase_singleTable.db")
+  # out2 <- dbPull(filePath = "tests/testthat/helper_dataBase_singleTable.db", vSelect = "ID2")
   out <- dbPull(filePath = "helper_dataBase_singleTable.db")
   out2 <- dbPull(filePath = "helper_dataBase_singleTable.db", vSelect = "ID2")
   expect_equal(out, dfList$df1)
